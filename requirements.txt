@@ -1,0 +1,8 @@
+streamlit
+plotly
+numpy
+requests
+Pillow
+reportlab
+pandas
+inference-sdk

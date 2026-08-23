@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+*.pyc
+.env
+uploaded_temp.jpg
+road_analysis_report.pdf

@@ -1,8 +1,9 @@
 
 import os
 import requests
-
+from dotenv import load_dotenv
 from datetime import datetime
+load_dotenv()
 import numpy as np
 import pandas as pd
 import plotly.express as px
@@ -56,7 +57,7 @@ demand_level = st.sidebar.select_slider(
 # ---------------------------------------------------------
 RF_API_URL = "https://serverless.roboflow.com"
 # IMPORTANT: replace with your *private* Roboflow API key
-RF_API_KEY = "YB1ixuHBQyilH1OOZINT"
+RF_API_KEY = os.getenv("ROBOFLOW_API_KEY")
 RF_MODEL_ID = "potholes-zqtfu/2"
 
 
@@ -115,8 +116,7 @@ def detect_potholes_roboflow(img: Image.Image) -> tuple[int, float, Image.Image]
 # ---------------------------------------------------------
 # TomTom config (live traffic)
 # ---------------------------------------------------------
-TOMTOM_API_KEY = os.getenv("TOMTOM_API_KEY", "pQu7UszlMVbIjXpss7BhXLYloKb5iaPp")
-
+TOMTOM_API_KEY = os.getenv("TOMTOM_API_KEY")
 
 def fetch_tomtom_segment(lat: float, lon: float):
     """Fetch live speed/congestion from TomTom for a single point."""
